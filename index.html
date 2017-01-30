@@ -1,18 +1,20 @@
 <html>
 	<head>
 		<title>App Title</title>
-		<link rel="icon" href="img/icon.png">
+		<!--<link rel="icon" href="img/icon.png">-->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="theme-color" content="#5b6570">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/css/framework7.material.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/css/framework7.material.colors.min.css">
-		<link rel="stylesheet" href="https://codepen.io/RogerHN/pen/oBevvp.css">
+		<link rel="stylesheet" type="text/css" href="css/resources.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/js/framework7.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
+<!--		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/i18next/6.0.3/i18next.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/jquery-i18next.min.js"></script>-->
 		<script language="javascript" type="text/javascript" src="js/constants.js"></script>
 		<script language="javascript" type="text/javascript" src="js/nmsapp.js"></script>
 	</head>
@@ -83,9 +85,9 @@
 										<span id="qntText" class="quantity" data-i18n="Quantity">Quantity</span>
 										<input name="qntNumber" class="hide" type="number" pattern="[0-9]*" step="1"/>
 									</div>
-									<button id="ItemEdit" class="editSlot" name="editButton">edit</button>
-									<button id="ItemSave" name="saveButton" class="hide">save</button>
-									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+									<button id="ItemEdit" class="slotbuttons" name="editButton">edit</button>
+									<button id="ItemSave" name="saveButton" class="slotbuttons hide">save</button>
+									<button id="ItemClear" name="clearButton" class="slotbuttons hide">clear</button>
 								</div>
 
 								<div class="container-slot">
@@ -98,9 +100,9 @@
 										<span id="qntText" class="quantity" data-i18n="Quantity">Quantity</span>
 										<input name="qntNumber" class="hide" />
 									</div>
-									<button id="edit" name="editButton">edit</button>
-									<button id="save" name="saveButton" class="hide">save</button>
-									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+									<button id="edit" class="slotbuttons" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="slotbuttons hide">save</button>
+									<button id="ItemClear" name="clearButton" class="slotbuttons hide">clear</button>
 								</div>
 
 								<div class="storageNumber"></div>
@@ -116,9 +118,9 @@
 										<span id="qntText" class="quantity" data-i18n="Quantity">Quantity</span>
 										<input name="qntNumber" class="hide" />
 									</div>
-									<button id="ItemEdit" name="editButton">edit</button>
-									<button id="ItemSave" name="saveButton" class="hide">save</button>
-									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+									<button id="ItemEdit" class="slotbuttons" name="editButton">edit</button>
+									<button id="ItemSave" name="saveButton" class="slotbuttons hide">save</button>
+									<button id="ItemClear" name="clearButton" class="slotbuttons hide">clear</button>
 								</div>
 
 								<div class="container-slot">
@@ -131,9 +133,9 @@
 										<span id="qntText" class="quantity" data-i18n="Quantity">Quantity</span>
 										<input name="qntNumber" class="hide" />
 									</div>
-									<button id="edit" name="editButton">edit</button>
-									<button id="save" name="saveButton" class="hide">save</button>
-									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+									<button id="edit" class="slotbuttons" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="slotbuttons hide">save</button>
+									<button id="ItemClear" name="clearButton" class="slotbuttons hide">clear</button>
 								</div>
 
 								<div class="container-slot">
@@ -146,9 +148,9 @@
 										<span id="qntText" class="quantity" data-i18n="Quantity">Quantity</span>
 										<input name="qntNumber" class="hide" />
 									</div>
-									<button id="edit" name="editButton">edit</button>
-									<button id="save" name="saveButton" class="hide">save</button>
-									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+									<button id="edit" class="slotbuttons" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="slotbuttons hide">save</button>
+									<button id="ItemClear" name="clearButton" class="slotbuttons hide">clear</button>
 								</div>
 							</div>
 
@@ -163,267 +165,62 @@
 					</div>
 				</div>
 			</div>
-			<div id="itemsMenu" class="hide">
-				<div class="itemMenuTitle">Select an Item</div>
-				<div class="itemSubmenu">
-					<ul class="tabs-menu">
-						<li class="current"><a href="#tab-1">
-							<i class="cat-resources"></i>
-							</a></li>
-						<li><a href="#tab-2">
-							<i class="cat-devices"></i>
-							</a></li>
-						<li><a href="#tab-3">
-							<i class="cat-components"></i>
-							</a></li>
-						<li><a href="#tab-4">
-							<i class="cat-commodity"></i>
-							</a></li>
-						<li><a href="#tab-5">
-							<i class="cat-alloy"></i>
-							</a></li>
-						<li><a href="#tab-6">
-							<i class="cat-energy"></i>
-							</a></li>
-					</ul>
-				</div>
-				<div class="tab">
-					<div id="tab-1" class="tab-content resources">
-						<div class="subMenuTitle" data-i18n="resources">resources</div>
+			<div id="itemsMenuOverlay">
+				<div id="itemsMenu" class="absolute-center is-fixed">
+					<div class="itemMenuTitle">Select an Item</div>
+					<div class="itemSubmenu">
+						<ul class="tabs-menu">
+							<li class="current"><a href="#tab-1">
+								<i class="cat-resources"></i>
+								</a></li>
+							<li><a href="#tab-2">
+								<i class="cat-devices"></i>
+								</a></li>
+							<li><a href="#tab-3">
+								<i class="cat-components"></i>
+								</a></li>
+							<li><a href="#tab-4">
+								<i class="cat-commodity"></i>
+								</a></li>
+							<li><a href="#tab-5">
+								<i class="cat-alloy"></i>
+								</a></li>
+							<li><a href="#tab-6">
+								<i class="cat-energy"></i>
+								</a></li>
+						</ul>
+					</div>
+					<div class="tab">
+						<div id="tab-1" class="tab-content resources">
+							<div class="subMenuTitle" data-i18n="resources">resources</div>
+							<div class="itemsContainer"></div>
+						</div>
+						<div id="tab-2" class="tab-content devices">
+							<div class="subMenuTitle" data-i18n="devices">devices</div>
+							<div class="itemsContainer"></div>
+						</div>
+					</div>
+					<div id="tab-3" class="tab-content components">
+						<div class="subMenuTitle" data-i18n="components">components</div>
 						<div class="itemsContainer"></div>
 					</div>
-					<div id="tab-2" class="tab-content devices">
-						<div class="subMenuTitle" data-i18n="devices">devices</div>
+					<div id="tab-4" class="tab-content commodities">
+						<div class="subMenuTitle" data-i18n="commodities">commodities</div>
 						<div class="itemsContainer"></div>
 					</div>
-				</div>
-				<div id="tab-3" class="tab-content components">
-					<div class="subMenuTitle" data-i18n="components">components</div>
-					<div class="itemsContainer"></div>
-				</div>
-				<div id="tab-4" class="tab-content commodities">
-					<div class="subMenuTitle" data-i18n="commodities">commodities</div>
-					<div class="itemsContainer"></div>
-				</div>
-				<div id="tab-5" class="tab-content alloys">
-					<div class="subMenuTitle" data-i18n="alloys">alloys</div>
-					<div class="itemsContainer"></div>
-				</div>
-				<div id="tab-6" class="tab-content energy">
-					<div class="subMenuTitle" data-i18n="energy">energy</div>
-					<div class="itemsContainer"></div>
+					<div id="tab-5" class="tab-content alloys">
+						<div class="subMenuTitle" data-i18n="alloys">alloys</div>
+						<div class="itemsContainer"></div>
+					</div>
+					<div id="tab-6" class="tab-content energy">
+						<div class="subMenuTitle" data-i18n="energy">energy</div>
+						<div class="itemsContainer"></div>
+					</div>
+					<div class="closeButtonDiv">
+						<button id="closeItemsButton" class="closeItemsButton">Cancel</button>
+					</div>
 				</div>
 			</div>
 		</div>
 	</body>
 </html>
-
-<!--
-<html>
-	<head>
-		<title>App Title</title>
-		<link rel="icon" href="img/icon.png">
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-		<meta name="mobile-web-app-capable" content="yes">
-		<meta name="theme-color" content="#5b6570">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/css/framework7.material.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/css/framework7.material.colors.min.css">
-		<link rel="stylesheet" href="https://codepen.io/RogerHN/pen/oBevvp.css">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/js/framework7.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
-		<script language="javascript" type="text/javascript" src="js/constants.js"></script>
-		<script language="javascript" type="text/javascript" src="js/nmsapp.js"></script>
-	</head>
-
-	<body id="theme">
-		<div class="statusbar-overlay"></div>
-		<div class="panel-overlay"></div>
-		<div class="panel panel-left panel-cover">
-			<div class="langswitch">
-				<p data-i18n="language">Language</p>
-				<button class="lang" data-lang="en">Eng</button>
-				<button class="lang" data-lang="br">Por</button>
-			</div>
-			<div id="themeChooser">
-				<p data-i18n="theme">Theme</p>
-				<div id="lightTheme" class="themeChange lightTheme">
-					<span class="themeText" data-i18n="LightTheme">LightTheme</span>
-				</div>
-				<div id="darkTheme" class="themeChange darkTheme">
-					<span class="themeText" data-i18n="DarkTheme">DarkTheme</span>
-				</div>
-			</div>
-		</div>
-		<div class="panel panel-right panel-reveal">
-			<p>Right panel content goes here</p>
-		</div>
-		<div class="views">
-			<div class="view view-main">
-				<div class="pages navbar-fixed">
-					<div id="PageName" data-page="storage" data-storage="storage" class="page">
-						<div class="navbar">
-							<div class="navbar-inner">
-								<div class="center">
-									<i class="icon7"></i>
-									<span class="apptitle">App Name</span>
-								</div>
-								<div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
-							</div>
-						</div>
-						<div class="page-content">
-							<div id="storage" data-id="1" class="storage">
-								<div id="colours">
-									<p class="colorText">Storage Color</p>
-									<div id="colorPicker1" class="palette colorPicker1"></div>
-									<div id="colorPicker2" class="palette colorPicker2"></div>
-									<div id="colorPicker3" class="palette colorPicker3"></div>
-									<div id="colorPicker4" class="palette colorPicker4"></div>
-									<div id="colorPicker5" class="palette colorPicker5"></div>
-								</div>
-
-								<div class="container-slot">
-									<div id="slot" data="1">
-										<select id="itemList" name="itemSelect" class="hide">
-											<option data-i18n="[value]item;[text]item" value="item">Item</option>
-										</select>
-										<span id="itemName" class="name" data-i18n="[value]Item;[text]Item">Item</span>
-										<i id="itemIcon" class="item"></i>
-										<span id="qntText" class="quantity">Quantity</span>
-										<input name="qntNumber" class="hide" type="number" pattern="[0-9]*" step="1"/>
-									</div>
-									<button id="ItemEdit" class="editSlot" name="editButton">edit</button>
-									<button id="ItemSave" name="saveButton" class="hide">save</button>
-									<button id="ItemClear" name="clearButton" class="hide">clear</button>
-								</div>
-
-								<div class="container-slot">
-									<div id="slot" data="2">
-										<select id="itemList" name="itemSelect" class="hide">
-											<option data-i18n="[value]item;[text]item" value="item">Item</option>
-										</select>
-										<span id="itemName" class="name">Item</span>
-										<i id="itemIcon" class="item"></i>
-										<span id="qntText" class="quantity">Quantity</span>
-										<input name="qntNumber" class="hide" />
-									</div>
-									<button id="edit" name="editButton">edit</button>
-									<button id="save" name="saveButton" class="hide">save</button>
-									<button id="ItemClear" name="clearButton" class="hide">clear</button>
-								</div>
-								<br>
-
-								<div class="container-slot">
-									<div id="slot" data="3">
-										<select id="itemList" name="itemSelect" class="hide">
-											<option data-i18n="[value]item;[text]item" value="item">Item</option>
-										</select>
-										<span id="itemName" class="name">Item</span>
-										<i id="itemIcon" class="item"></i>
-										<span id="qntText" class="quantity">Quantity</span>
-										<input name="qntNumber" class="hide" />
-									</div>
-									<button id="ItemEdit" name="editButton">edit</button>
-									<button id="ItemSave" name="saveButton" class="hide">save</button>
-									<button id="ItemClear" name="clearButton" class="hide">clear</button>
-								</div>
-
-								<div class="container-slot">
-									<div id="slot" data="4">
-										<select id="itemList" name="itemSelect" class="hide">
-											<option data-i18n="[value]item;[text]item" value="item">Item</option>
-										</select>
-										<span id="itemName" class="name">Item</span>
-										<i id="itemIcon" class="item"></i>
-										<span id="qntText" class="quantity">Quantity</span>
-										<input name="qntNumber" class="hide" />
-									</div>
-									<button id="edit" name="editButton">edit</button>
-									<button id="save" name="saveButton" class="hide">save</button>
-									<button id="ItemClear" name="clearButton" class="hide">clear</button>
-								</div>
-
-								<div class="container-slot">
-									<div id="slot" data="5">
-										<select id="itemList" name="itemSelect" class="hide">
-											<option data-i18n="[value]item;[text]item" value="item">Item</option>
-										</select>
-										<span id="itemName" class="name">Item</span>
-										<i id="itemIcon" class="item"></i>
-										<span id="qntText" class="quantity">Quantity</span>
-										<input name="qntNumber" class="hide" />
-									</div>
-									<button id="edit" name="editButton">edit</button>
-									<button id="save" name="saveButton" class="hide">save</button>
-									<button id="ItemClear" name="clearButton" class="hide">clear</button>
-								</div>
-							</div>
-
-							<div class="alertOverlay" id="alertOverlayDiv">
-								<div id="itemAlert" class="absolute-center is-fixed">
-									<span class="alertTitle" data-i18n="AlertTitle">Warning!</span>
-									<span class="alertText" data-i18n="AlertText">Please select an item!</span>
-									<span id="closeAlert" data-i18n="AlertTextClose" class="alertButton">Close</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="itemsMenu" class="hide">
-			<div class="itemMenuTitle">Select an Item</div>
-			<div class="itemSubmenu">
-				<ul class="tabs-menu">
-					<li class="current"><a href="#tab-1">
-						<i class="cat-resources"></i>
-						</a></li>
-					<li><a href="#tab-2">
-						<i class="cat-devices"></i>
-						</a></li>
-					<li><a href="#tab-3">
-						<i class="cat-components"></i>
-						</a></li>
-					<li><a href="#tab-4">
-						<i class="cat-commodity"></i>
-						</a></li>
-					<li><a href="#tab-5">
-						<i class="cat-alloy"></i>
-						</a></li>
-					<li><a href="#tab-6">
-						<i class="cat-energy"></i>
-						</a></li>
-				</ul>
-			</div>
-			<div class="tab">
-				<div id="tab-1" class="tab-content resources">
-					<div class="subMenuTitle" data-i18n="resources">resources</div>
-					<div class="itemsContainer"></div>
-				</div>
-				<div id="tab-2" class="tab-content devices">
-					<div class="subMenuTitle" data-i18n="devices">devices</div>
-					<div class="itemsContainer"></div>
-				</div>
-				<div id="tab-3" class="tab-content components">
-					<div class="subMenuTitle" data-i18n="components">components</div>
-					<div class="itemsContainer"></div>
-				</div>
-				<div id="tab-4" class="tab-content commodities">
-					<div class="subMenuTitle" data-i18n="commodities">commodities</div>
-					<div class="itemsContainer"></div>
-				</div>
-				<div id="tab-5" class="tab-content alloys">
-					<div class="subMenuTitle" data-i18n="alloys">alloys</div>
-					<div class="itemsContainer"></div>
-				</div>
-				<div id="tab-6" class="tab-content energy">
-					<div class="subMenuTitle" data-i18n="energy">energy</div>
-					<div class="itemsContainer"></div>
-				</div>
-			</div>
-		</div>
-	</body>
-</html>
--->

@@ -214,8 +214,13 @@ $(document).ready(function () {
 		});
 
 		$('.itemSlot').click(function () {
-			var $p = $(this).parent().parent().parent().parent();
-			$p.toggleClass("hide");
+			document.getElementById("itemsMenuOverlay").style.display = "none";
+// 			var $p = $(this).parent().parent().parent().parent();
+// 			$p.toggleClass("hide");
+		});
+
+		$(".closeItemsButton").click(function() {
+			document.getElementById("itemsMenuOverlay").style.display = "none";
 		});
 
 		$('.changecolor').click(function () {
@@ -307,8 +312,10 @@ function editItem(t) {
 		qntNumber.val(items['container' + cid]['slot' + dval]['quantity']);
 	}
 
-	$p.find("#itemList").removeClass("hide");
 	$("#itemsMenu").removeClass("hide");
+	document.getElementById("itemsMenuOverlay").style.display = "block";
+
+	$p.find("#itemList").removeClass("hide");
 	qntNumber.addClass("qntNumber");
 	qntNumber.removeClass("hide");
 
