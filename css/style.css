@@ -430,7 +430,7 @@ label:before {
 .closeButtonDiv {
 	width:100%;
 	float:left;
-	margin-top:20px;
+	margin-top:5px;
 	text-align:center;
 }
 
@@ -441,16 +441,13 @@ label:before {
 	font-family: GeoNMS;}
 
 #itemsMenu {
-/* 	position: absolute; */
 	width: 320px;
 	height: 350px;
 	background: #322323;
 	border-top: 5px solid #64b4ff;
 	overflow: hidden;
-/* 	left: 50px; */
-/* 	top: 100px; */
-/* 	z-index: 9999; */
 }
+
 #itemsMenu:before {
 	content: "";
 	height: 5px;
@@ -470,7 +467,7 @@ label:before {
 .subMenuTitle {
 	text-align: left;
 	text-transform: uppercase;
-	padding: 5px 10px 0px;
+	padding: 5px 5px 0px;
 /* 	font-family: 'Roboto', Microsoft YaHei; */
 	font-family: "GEONms";
 	font-size: 18px;
@@ -566,16 +563,17 @@ label:before {
 
 .tab {
 	float: left;
-	width: auto;
+	width: calc(100% - 20px);
+	padding: 10px;
 }
 
 .tab-content {
-	width: 320px;
+	width: 300px;
 	display: none;
 }
 
 #tab-1 {
-	display: block;   
+	display: block;
 }
 .cat-alloy {
 	background-image: url(https://atlasdatabase.github.io/img/cat/alloy.png);
