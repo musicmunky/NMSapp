@@ -406,8 +406,8 @@ label:before {
 	background: #322323;
 	border-top: 5px solid #64b4ff;
 	overflow: hidden;
-	left: 0px;
-	top: 0px;
+	left: 50px;
+	top: 100px;
 	z-index: 9999;
 }
 #itemsMenu:before {
