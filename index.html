@@ -1,21 +1,21 @@
 <html>
 	<head>
 		<title>App Title</title>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/css/framework7.material.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/css/framework7.material.colors.min.css">
-		<link rel="stylesheet" href="https://codepen.io/RogerHN/pen/oBevvp.css"><!-- NMS Icons -->
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="icon" href="img/icon.png">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="theme-color" content="#5b6570">
-		<link rel="icon" href="img/icon.png">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/css/framework7.material.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/css/framework7.material.colors.min.css">
+		<link rel="stylesheet" href="https://codepen.io/RogerHN/pen/oBevvp.css"><!-- NMS Icons -->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/js/framework7.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
 		<script src="https://codepen.io/RogerHN/pen/MbVOvB.js"></script><!-- myapp.js -->
-		<script language="javascript" type="text/javascript" src="constants.js"></script>
-		<script language="javascript" type="text/javascript" src="ls.js"></script>
+		<script language="javascript" type="text/javascript" src="js/constants.js"></script>
+		<script language="javascript" type="text/javascript" src="js/nmsapp.js"></script>
 	</head>
 
 	<body id="theme">
@@ -72,7 +72,7 @@
 										<span id="itemName" class="name" data-i18n="[value]Item;[text]Item">Item</span>
 										<i id="itemIcon" class="item"></i>
 										<span id="qntText" class="quantity">Quantity</span>
-										<input name="qntNumber" class="hide" type="number" pattern="[0-9]*" step="0.01"/>
+										<input name="qntNumber" class="hide" type="number" pattern="[0-9]*" step="1"/>
 									</div>
 									<button id="ItemEdit" class="editSlot" name="editButton">edit</button>
 									<button id="ItemSave" name="saveButton" class="hide">save</button>
