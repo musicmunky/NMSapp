@@ -1,4 +1,3 @@
-
 // Let the comments begin!
 
 // You'll notice I moved things like the options array and the language
@@ -114,6 +113,24 @@ $(document).ready(function () {
 			localStorage.setItem(lsname, JSON.stringify(lsobj));
 		});
 
+		var $p, arr, html;
+		for (var rsrc in ALLITEMS) {
+			try {
+				$p   = $("." + rsrc).find(".itemsContainer");
+				arr  = ALLITEMS[rsrc];
+				html = "";
+				for(var i = 0; i < arr.length; i++) {
+					html += "<div class='itemSlot'>";
+					html += "<span class='itemSlotName' data-i18n='" + arr[i] + "'>" + arr[i].replace(/-/g, " ") + "</span>";
+					html += "<i class='" + arr[i] + "'></i></div>";
+				}
+				$p.html(html);
+			}
+			catch(err) {
+				console.log("Error building resource item menu: " + err.message);
+			}
+		}
+
 		var saveItems = document.getElementsByName('saveButton');
 		var editItems = document.getElementsByName('editButton');
 		var clearItems = document.getElementsByName('clearButton');
@@ -197,6 +214,9 @@ $(document).ready(function () {
 		});
 	}
 });
+
+
+function buildItemMenu(o) {}
 
 
 function saveItem(t) {

@@ -1,31 +1,37 @@
+// I am using the name of each group as the same before each page.
+// so, Carbon for example is under resources-carbon.html,
+// and Atlas Pass V1 under devices-atlas-pass-v1.html if you plan to
+// make the link to each page
+
 /************************************************************************/
 // you will need to set CONTAINERS to 10 once you're done with your coding
 /************************************************************************/
 var CONTAINERS = 3;
 var SLOTS = 5;
 
-var OPTIONS = ["carbon", "thamium9", "plutonium", "heridium", "platinum", "chrysonite", "iron", "zinc", "titanium", "nickel", "iridium", "copper", "gold", "emeril", "aluminium", "candensium", "fervidium", "mordite", "pugneum", "spadonium", "tropheum", "temerium", "coryzagen", "coprite", "rubeum", "viridium", "cymatygen", "omegon", "radnox", "murrine", "calium", "antrium", "rigogen", "bypass-chip", "albumen-pearl"];
+var OPTIONS = ["carbon", "thamium9", "plutonium", "heridium", "platinum", "chrysonite", "iron", "zinc",
+			   "titanium", "nickel", "iridium", "copper", "gold", "emeril", "aluminium", "candensium",
+			   "fervidium", "mordite", "pugneum", "spadonium", "tropheum", "temerium", "coryzagen",
+			   "coprite", "rubeum", "viridium", "cymatygen", "omegon", "radnox", "murrine", "calium",
+			   "antrium", "rigogen", "bypass-chip", "albumen-pearl"];
 
 var ALLITEMS = {
-	"resources": ["carbon", "thamium9", "plutonium", "heridium", "platinum", "chrysonite", "iron", "zinc",
-					"titanium", "nickel", "iridium", "copper", "gold", "emeril", "aluminium", "candensium",
-					"fervidium", "mordite", "pugneum", "spadonium", "tropheum", "temerium", "coryzagen",
-					"coprite", "rubeum", "viridium", "cymatygen", "omegon", "radnox", "murrine", "calium",
-					"antrium", "rigogen"],
-	"devices": ["atlas-pass-v1", "atlas-pass-v2", "atlas-pass-v3", "bypass-chip"],
-	"components": ["carite-sheet", "night-crystals", "microdensity-fabric", "electron-vapor", "antimatter",
-					"suspension-fluid", "dynamic-resonator", "voltaic-cell", "acid", "circuit-board",
-					"copper-wire", "explosive", "insulating-gel", "glass", "lubricant", "non-ferrous-plate",
-					"poli-fibre", "shielding-shard", "shielding-plate", "shielding-sheet"],
-	"tradeables": ["albumen-pearl", "aquasphere", "vortex-cube", "gek-relic", "vykeen-efigy", "korwax-casing",
+	resources: ["carbon", "thamium9", "plutonium", "heridium", "platinum", "chrysonite", "iron", "zinc",
+				"titanium", "nickel", "iridium", "copper", "gold", "emeril", "aluminium", "candensium",
+				"fervidium", "mordite", "pugneum", "spadonium", "tropheum", "temerium", "coryzagen",
+				"coprite", "rubeum", "viridium", "cymatygen", "omegon", "radnox", "murrine", "calium",
+				"antrium", "rigogen"],
+	devices: ["atlas-pass-v1", "atlas-pass-v2", "atlas-pass-v3", "bypass-chip"],
+	components: ["carite-sheet", "night-crystals", "microdensity-fabric", "electron-vapor", "antimatter",
+				 "suspension-fluid", "dynamic-resonator", "voltaic-cell", "acid", "circuit-board",
+				 "copper-wire", "explosive", "insulating-gel", "glass", "lubricant", "non-ferrous-plate",
+				 "poli-fibre", "shielding-shard", "shielding-plate", "shielding-sheet"],
+	commodities: ["albumen-pearl", "aquasphere", "vortex-cube", "gek-relic", "vykeen-efigy", "korwax-casing",
 					"atlas-stone", "grahgrah", "fascination-bead", "gek-charm", "vykeen-dagger", "korvax-cube",
 					"geknip", "gravitino-ball", "sac-venom", "neutrino-module"],
-	"alloy": ["aronium", "herox", "lemmium", "crolium", "magmox", "grantine", "terumin"],
-	"energy": ["unstable-plasma", "warp-cell", "power-gel", "power-canister", "power-reservoir"]
+	alloys: ["aronium", "herox", "lemmium", "crolium", "magmox", "grantine", "terumin"],
+	energy: ["unstable-plasma", "warp-cell", "power-gel", "power-canister", "power-reservoir"]
 };
-
-// I am using the name of each group as the same before each page. so, Carbon for example is under resources-carbon.html, and Atlas Pass V1 under devices-atlas-pass-v1.html if you plan to make the link to each page
-
 
 // language.js
 var ITEMSLANG = {
@@ -121,3 +127,11 @@ var ITEMSLANG = {
 		}
 	}
 };
+
+
+var myApp = new Framework7({ swipePanel: 'left' });
+var $$ = Dom7;
+var mainView = myApp.addView('.view-main');
+$$(document).on('pageInit', function (e) {
+	$(document).i18n();
+});

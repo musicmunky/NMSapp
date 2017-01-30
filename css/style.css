@@ -1,4 +1,3 @@
-
 body .navbar, body .subnavbar, body .toolbar {
 	background: #353535;
 }
@@ -70,9 +69,11 @@ i.menu {
 
 .storage {
 	margin: 10px auto;
-	width: 320px;
+	width: 310px;
 	background: #ccc;
 	padding: 5px;
+	position: relative;
+	overflow: hidden;
 }
 .container-slot {
 	display: inline-block;
@@ -196,16 +197,76 @@ label:before {
 .hide {
 	display: none !important;
 }
+.storageNumber {
+	background-image: url(https://atlasdatabase.github.io/img/numbers/num0.png),url(https://atlasdatabase.github.io/img/numbers/num1.png);
+	background-size: contain, contain;
+	background-repeat: no-repeat;
+	background-position-x: -15px, 25px;
+	background-position-y: 35px, 35px;
+	width: 90px;
+	height: 150px;
+	display: inline-block;
+	padding: 5px;
 
+}
 /* Background Colors */
+#colours {
+	text-align: center;
+	background: #ccc;
+	width: 100px;
+	position: absolute;
+	right: -100px;
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s;
+}
+#colours.active {
+	right: 0px;
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s;
+}
+.changecolor {
+	background-image: url(https://atlasdatabase.github.io/img/icons/changecolor.png);
+	background-size: contain;
+	background-color: #eee;
+	display: block;
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	left: -32px;
+	cursor: pointer;
+}
+.colorText {
+	display: block;
+	text-align: center;
+	padding: 5px;
+	margin: 0;
+}
 .palette {
 	cursor: pointer;
-	height: 18px;
-	width: 18px;
-	border: 2px solid #000;
+	height: 26px;
+	width: 26px;
+	border-radius: 20%;
 	display: inline-block;
 	margin: 5px;
+	position: relative;
+	box-shadow: 1px 1px 1px #888;
 }
+.color0 {background: #e6e6e6;}
+.color1 {background: #232323;}
+.color2 {background: #fff22a;}
+.color3 {background: #67b156;}
+.color4 {background: #6794ff;}
+.color5 {background: #2c65a9;}
+.color6 {background: #6849ca;}
+.color7 {background: #cf78c8;}
+.color8 {background: #b72e2e;}
+.color9 {background: #f57b22;}
+.color10 {background: #ffb34a;}
+.color11 {background: #78c94f;}
+.color12 {background: #52ce97;}
+.color13 {background: #826494;}
+.color14 {background: #cd6e8a;}
+.color15 {background: #6d6d6d;}
 .colorPicker1 {
 	background: #e1ffff;
 }
@@ -220,14 +281,6 @@ label:before {
 }
 .colorPicker5 {
 	background: #97acff;
-}
-#colours {
-	text-align: center;
-}
-.colorText {
-	display: block;
-	text-align: center;
-	margin: 5px;
 }
 /* Theme */
 .themeChange {
@@ -348,14 +401,14 @@ label:before {
 
 #itemsMenu {
 	position: absolute;
-	width: 510px;
-	height: 260px;
+	width: 320px;
+	height: 282px;
 	background: #322323;
 	border-top: 5px solid #64b4ff;
 	overflow: hidden;
-	left: 50px;
-	top:10px;
-	z-index:9999;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
 }
 #itemsMenu:before {
 	content: "";
@@ -390,7 +443,7 @@ label:before {
 	overflow-y: hidden;
 }
 
-#itemSlotName {
+.itemSlotName {
 	font-family: 'Roboto', Microsoft YaHei;
 	font-size: 12px;
 	font-weight: 500;
@@ -415,29 +468,29 @@ label:before {
 	height: 75px;
 }
 .tabs-menu {
-	float: left;
-	clear: both;
-	padding: 0;
-	margin: 0;
+	background: #453232;
 	list-style: none;
 	width: 100%;
-	background: #453232;
+	height: 50px;
+	padding: 0;
+	margin: 0;
 }
 
 .tabs-menu li {
-	height: 39px;
+	height: 40px;
 	line-height: 32px;
-	float: left;
 	padding: 5px;
+	margin: 0 auto;
+	display: inline-block;
 }
 .tabs-menu li i {
-	width: 45px;
-	height: 45px;
+	width: 40px;
+	height: 40px;
 	background-repeat: no-repeat;
 	background-position: center;
 }
 .tabs-menu li i.cat-resources {
-	background-size: 34px;
+	background-size: 32px;
 }
 
 .tabs-menu li.current {
@@ -474,12 +527,12 @@ label:before {
 }
 
 .tab-content {
-	width: 100%;
+	width: 320px;
 	display: none;
 }
 
 #tab-1 {
-	display: block;
+	display: block;   
 }
 .cat-alloy {
 	background-image: url(https://atlasdatabase.github.io/img/cat/alloy.png);
@@ -499,307 +552,3 @@ label:before {
 .cat-resources {
 	background-image: url(https://atlasdatabase.github.io/img/cat/resources.png);
 }
-
-/*body .navbar, body .subnavbar, body .toolbar {
-  background: #353535;
-}
-.page-content {
-  background-color: #686669;
-}
-.lightTheme .page-content {
-    background-color: #fff;
-}
-.darkTheme .page-content {
-    background-color: #333;
-}
-
-i.icon7 {
-  width: 48px;
-  height: 48px;
-  float: left;
-  margin: 4px 10px 4px 4px;
-  background-size: contain;
-  background-image: url(http://res.cloudinary.com/rogerhn/image/upload/v1480967854/icon.png);
-}
-.langswitch p {
-  margin: 5px;
-}
-.content-block.center {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  text-align: center;
-}
-.item-block {
-  display: inline-block;
-  max-width: 320px;
-}
-.menu-item {
-  display: inline-block;
-  margin: 5px;
-  width: 128px;
-  height: 128px;
-  background: #616161;
-  border: 1px solid #595959;
-  cursor: pointer;
-}
-.menu-item i {
-  width: 120px;
-  height: 64px;
-  display: block;
-  margin: 13px auto;
-  background-repeat:no-repeat;
-  background-size:contain;
-  background-position:center;
-  vertical-align: middle;
-}
-.menu-cat {
-  display: block;
-  line-height: 32px;
-  letter-spacing: 1px;
-  font-family: 'roboto', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  white-space:nowrap;
-  color: #fff;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: -1px -1px 0 #32383f, 1px -1px 0 #32383f, -1px 1px 0 #32383f, 1px 1px 0 #32383f;
-}
-i.menu {
-  background-image: url(http://res.cloudinary.com/rogerhn/image/upload/v1480969231/list.png);
-}
-
-.storage {
-  float: left;
-  margin: 10px;
-  width: 320px;
-  background: #ccc;
-  padding: 5px;
-}
-.container-slot {
-  display: inline-block;
-  width: 100px;
-  text-align: center;
-  vertical-align: top;
-}
-#slot {
-  background-color: #fff;
-  border: 1px solid #333;
-  width: auto;
-  height: auto;
-  margin: 5px;
-  display: block;
-  text-align: center;
-}
-#itemList {
-  height: 27px;
-  position: relative;
-  font-family: 'Roboto', Microsoft YaHei;
-  font-size: 13px;
-  font-weight: 500;
-  text-align: center;
-  text-align-last: center;
-  padding: 5px 4px 0 5px;
-  outline: none;
-  text-transform: capitalize;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  border: none;
-  width: 100%;
-  margin: 0 0 5px;
-}
-.name {
-  font-family: 'Roboto', Microsoft YaHei;
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: capitalize;
-  text-align: center;
-  line-height: 17px;
-  display: table-cell;
-  vertical-align: middle;
-  margin: 0 auto;
-  width: 85px;
-  height: 32px;
-  padding: 5px 5px 3px;
-}
-.quantity {
-  font-family: 'Roboto', Microsoft YaHei;
-  font-size: 14px;
-  font-weight: 500;
-  text-align: center;
-  line-height: 23px;
-  display: block;
-  vertical-align: middle;
-  margin: 0 auto;
-  width: auto;
-  padding: 5px;
-  height: 23px;
-}
-i {
-  background-size: contain;
-  width: 75px;
-  height: 75px;
-  display: block;
-  margin: 0 auto;
-}
-
-.qntNumber {
-  text-align: center;
-  margin: 5px;
-  outline: none;
-  color: #333333;
-  font-family: 'Roboto', Microsoft YaHei;
-  font-weight: 500;
-  font-size: 14px;
-  width: 50px;
-}
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
-option {
-  text-transform: capitalize;
-}
-.item {
-  background-image: url(http://res.cloudinary.com/rogerhn/image/upload/v1484450932/emptyslot_q2blac.png);
-  background-size: contain;
-  background-color: #ddd;
-}
-label {
-    position:relative
-}
-label:after {
-    content:'<>';
-    font:11px"Consolas", monospace;
-    color:#aaa;
-    -webkit-transform:rotate(90deg);
-    -moz-transform:rotate(90deg);
-    -ms-transform:rotate(90deg);
-    transform:rotate(90deg);
-    right:8px;
-    top:2px;
-    padding:0 0 2px;
-    border-bottom:1px solid #ddd;
-    position:absolute;
-    pointer-events:none;
-}
-label:before {
-    content:'';
-    right:6px;
-    top:0px;
-    width:20px;
-    height:20px;
-    background:#444;
-    position:absolute;
-    pointer-events:none;
-    display:block;
-}
-.hide {
-display: none !important;
-}
-
-.palette {
-  cursor: pointer;
-  height: 18px;
-  width: 18px;
-  border: 2px solid #000;
-  display: inline-block;
-  margin: 5px;
-}
-.colorPicker1 {
-    background: #e1ffff;
-}
-.colorPicker2 {
-    background: #ffffb8;
-}
-.colorPicker3 {
-    background: #ffc5ff;
-}
-.colorPicker4 {
-    background-color: #99ff9c;
-}
-.colorPicker5 {
-    background: #97acff;
-}
-#colours {
-    text-align: center;
-}
-.colorText {
-    display: block;
-    text-align: center;
-    margin: 5px;
-}
-
-
-.themeChange {
-    cursor: pointer;
-    height: 18px;
-    width: 18px;
-    border: 2px solid #000
-}
-.lightTheme {
-    background: #e1ffff;
-}
-.darkTheme {
-    background: #ffffb8;
-}
-
-#itemAlert:before {
-  content: "";
-  height: 4px;
-  width: 200px;
-  background: #821818;
-}
-#itemAlert {
-  position: absolute;
-  background: #AD2D2D;
-  color: #FFF;
-  padding: 20px;
-  width: 200px;
-  text-align: center;
-  height: 50px;
-  vertical-align: middle;
-  line-height: 50px;
-  font-size: 16px;
-  border-top: 5px solid #821818;
-}
-.absolute-center {
-    height: 50%;
-    width: 50%;
-    overflow: auto;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
-.absolute-center.is-fixed {
-    position: fixed;
-    z-index: 999;
-}
-
-.alertOverlay {
-	display:none;
-	position:absolute;
-	z-index:99999;
-	top:0;
-	left:0;
-	right:0;
-	bottom:0;
-	background: none repeat scroll 0 0 rgba(150, 150, 150, 0.5);
-	*background-color:#969696;
-}
-
-.alertButton {
-	background-color: #FAFAFA;
-    border: medium none;
-    color: #333;
-    font-size: 12px;
-    font-weight: bold;
-    margin-top: -10px;
-    text-align: center;
-    width: 100px !important;
-}
-*/
