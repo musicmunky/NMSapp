@@ -1,0 +1,635 @@
+<html>
+	<head>
+		<title>App Title</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/css/framework7.material.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/css/framework7.material.colors.min.css">
+		<link rel="stylesheet" href="https://codepen.io/RogerHN/pen/oBevvp.css"><!-- NMS Icons -->
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="theme-color" content="#5b6570">
+		<link rel="icon" href="img/icon.png">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/js/framework7.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
+		<script src="https://codepen.io/RogerHN/pen/MbVOvB.js"></script><!-- myapp.js -->
+		<script language="javascript" type="text/javascript" src="constants.js"></script>
+		<script language="javascript" type="text/javascript" src="ls.js"></script>
+	</head>
+
+	<body id="theme">
+		<div class="statusbar-overlay"></div>
+		<div class="panel-overlay"></div>
+		<div class="panel panel-left panel-cover">
+			<div class="langswitch">
+				<p data-i18n="language">Language</p>
+				<button class="lang" data-lang="en">Eng</button>
+				<button class="lang" data-lang="br">Por</button>
+			</div>
+			<div id="themeChooser">
+				<p data-i18n="theme">Theme</p>
+				<div id="lightTheme" class="themeChange lightTheme">
+					<span class="themeText" data-i18n="LightTheme">LightTheme</span>
+				</div>
+				<div id="darkTheme" class="themeChange darkTheme">
+					<span class="themeText" data-i18n="DarkTheme">DarkTheme</span>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-right panel-reveal">
+			<p>Right panel content goes here</p>
+		</div>
+		<div class="views">
+			<div class="view view-main">
+				<div class="pages navbar-fixed">
+					<div id="PageName" data-page="storage" data-storage="storage" class="page">
+						<div class="navbar">
+							<div class="navbar-inner">
+								<div class="center">
+									<i class="icon7"></i>
+									<span class="apptitle">App Name</span>
+								</div>
+								<div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+							</div>
+						</div>
+						<div class="page-content">
+							<div id="storage" data-id="1" class="storage">
+								<div id="colours">
+									<p class="colorText">Storage Color</p>
+									<div id="colorPicker1" class="palette colorPicker1"></div>
+									<div id="colorPicker2" class="palette colorPicker2"></div>
+									<div id="colorPicker3" class="palette colorPicker3"></div>
+									<div id="colorPicker4" class="palette colorPicker4"></div>
+									<div id="colorPicker5" class="palette colorPicker5"></div>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="1">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name" data-i18n="[value]Item;[text]Item">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" type="number" pattern="[0-9]*" step="0.01"/>
+									</div>
+									<button id="ItemEdit" class="editSlot" name="editButton">edit</button>
+									<button id="ItemSave" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="2">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="edit" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+								<br>
+
+								<div class="container-slot">
+									<div id="slot" data="3">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="ItemEdit" name="editButton">edit</button>
+									<button id="ItemSave" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="4">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="edit" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="5">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="edit" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+							</div>
+
+							<div class="alertOverlay" id="alertOverlayDiv">
+								<div id="itemAlert" class="absolute-center is-fixed">
+									<span class="alertTitle" data-i18n="AlertTitle">Warning!</span>
+									<span class="alertText" data-i18n="AlertText">Please select an item!</span>
+									<span id="closeAlert" data-i18n="AlertTextClose" class="alertButton">Close</span>
+								</div>
+							</div>
+						</div><!--/Page Content-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="itemsMenu" class="hide">
+			<div class="itemMenuTitle">Select an Item</div>
+			<div class="itemSubmenu">
+				<ul class="tabs-menu">
+					<li class="current"><a href="#tab-1">
+						<i class="cat-resources"></i>
+						</a></li>
+					<li><a href="#tab-2">
+						<i class="cat-devices"></i>
+						</a></li>
+					<li><a href="#tab-3">
+						<i class="cat-components"></i>
+						</a></li>
+					<li><a href="#tab-4">
+						<i class="cat-commodity"></i>
+						</a></li>
+					<li><a href="#tab-5">
+						<i class="cat-alloy"></i>
+						</a></li>
+					<li><a href="#tab-6">
+						<i class="cat-energy"></i>
+						</a></li>
+				</ul>
+			</div>
+			<div class="tab">
+				<div id="tab-1" class="tab-content resources">
+					<div class="subMenuTitle" data-i18n="resources">resources</div>
+					<div class="itemsContainer">
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="carbon">carbon</span>
+							<i class="carbon"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="thamium9">thamium9</span>
+							<i class="thamium9"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="plutonium">plutonium</span>
+							<i class="plutonium"></i>
+						</div>
+					</div>
+				</div>
+				<div id="tab-2" class="tab-content devices">
+					<div class="subMenuTitle" data-i18n="devices">devices</div>
+					<div class="itemsContainer">
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="atlas-pass">atlas pass</span>
+							<i class="atlas-pass"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="atlas-passV2">atlas pass V2</span>
+							<i class="atlas-pass"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="atlas-passV3">atlas pass V3</span>
+							<i class="atlas-pass"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="bypass-chip">bypass chip</span>
+							<i class="bypass-chip"></i>
+						</div>
+					</div>
+				</div>
+				<div id="tab-3" class="tab-content components">
+					<div class="subMenuTitle" data-i18n="components">components</div>
+					<div class="itemsContainer">
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="carite-sheet">carite sheet</span>
+							<i class="carite-sheet"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="night-crystals">night crystals</span>
+							<i class="night-crystals"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="microdensity-fabric">microdensity fabric</span>
+							<i class="microdensity-fabric"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="electron-vapor">electron vapor</span>
+							<i class="electron-vapor"></i>
+						</div>
+					</div>
+				</div>
+				<div id="tab-4" class="tab-content commodities">
+					<div class="subMenuTitle" data-i18n="commodities">commodities</div>
+					<div class="itemsContainer">
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="albumen-pearl">albumen pearl</span>
+							<i class="albumen-pearl"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="aquasphere">aquasphere</span>
+							<i class="aquasphere"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="vortex-cube">vortex cube</span>
+							<i class="vortex-cube"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="gek-relic">gek relic</span>
+							<i class="gek-relic"></i>
+						</div>
+					</div>
+				</div>
+				<div id="tab-5" class="tab-content alloys">
+					<div class="subMenuTitle" data-i18n="alloys">alloys</div>
+					<div class="itemsContainer">
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="aronium">aronium</span>
+							<i class="aronium"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="herox">herox</span>
+							<i class="herox"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="lemmium">lemmium</span>
+							<i class="lemmium"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="crolium">crolium</span>
+							<i class="crolium"></i>
+						</div>
+					</div>
+				</div>
+				<div id="tab-6" class="tab-content energy">
+					<div class="subMenuTitle" data-i18n="energy">energy</div>
+					<div class="itemsContainer">
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="unstable-plasma">unstable plasma</span>
+							<i class="unstable-plasma"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="warp-cell">warp cell</span>
+							<i class="warp-cell"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="power-gel">power gel</span>
+							<i class="power-gel"></i>
+						</div>
+						<div class="itemSlot">
+							<span id="itemSlotName" data-i18n="power-canister">power canister</span>
+							<i class="power-canister"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+
+
+
+<!--
+<html>
+	<head>
+		<title>App Title</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/css/framework7.material.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/css/framework7.material.colors.min.css">
+		<link rel="stylesheet" href="https://codepen.io/RogerHN/pen/oBevvp.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.0/js/framework7.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/1.6.3/i18next-1.6.3.min.js"></script>
+		<script src="https://codepen.io/RogerHN/pen/MbVOvB.js"></script>
+		<script language="javascript" type="text/javascript" src="constants.js"></script>
+		<script language="javascript" type="text/javascript" src="ls.js"></script>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="theme-color" content="#5b6570">
+		<link rel="icon" href="img/icon.png">
+	</head>
+
+	<body id="theme">
+		<div class="statusbar-overlay"></div>
+		<div class="panel-overlay"></div>
+		<div class="panel panel-left panel-cover">
+			<div class="langswitch">
+				<p data-i18n="language">Language</p>
+				<button class="lang" data-lang="en">Eng</button>
+				<button class="lang" data-lang="br">Por</button>
+			</div>
+			<div id="themeChooser">
+				<p data-i18n="theme">Theme</p>
+				<div id="lightTheme" class="themeChange lightTheme">
+					<span class="themeText" data-i18n="LightTheme">LightTheme</span>
+				</div>
+				<div id="darkTheme" class="themeChange darkTheme">
+					<span class="themeText" data-i18n="DarkTheme">DarkTheme</span>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-right panel-reveal">
+			<p>Right panel content goes here</p>
+		</div>
+		<div class="views">
+			<div class="view view-main">
+				<div class="pages navbar-fixed">
+					<div id="PageName" data-page="storage00" data-storage="storage00" class="page">
+						<div class="navbar">
+							<div class="navbar-inner">
+								<div class="center">
+									<i class="icon7"></i>
+									<span class="apptitle">App Name</span>
+								</div>
+								<div class="right"><a href="#" class="open-panel link icon-only"><i class="icon icon-bars"></i></a></div>
+							</div>
+						</div>
+						<div class="page-content">
+							<div id="storage" data-id="1" class="storage">
+								<div id="colours">
+									<p class="colorText">Storage Color</p>
+									<div id="colorPicker1" class="palette colorPicker1"></div>
+									<div id="colorPicker2" class="palette colorPicker2"></div>
+									<div id="colorPicker3" class="palette colorPicker3"></div>
+									<div id="colorPicker4" class="palette colorPicker4"></div>
+									<div id="colorPicker5" class="palette colorPicker5"></div>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="1">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="ItemEdit" class="editSlot" name="editButton">edit</button>
+									<button id="ItemSave" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="2">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="edit" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="3">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="ItemEdit" name="editButton">edit</button>
+									<button id="ItemSave" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="4">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="edit" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="5">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="edit" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+							</div>
+							<div id="storage" data-id="2" class="storage">
+
+								<div id="colours">
+									<p class="colorText">Storage Color</p>
+									<div id="colorPicker1" class="palette colorPicker1"></div>
+									<div id="colorPicker2" class="palette colorPicker2"></div>
+									<div id="colorPicker3" class="palette colorPicker3"></div>
+									<div id="colorPicker4" class="palette colorPicker4"></div>
+									<div id="colorPicker5" class="palette colorPicker5"></div>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="1">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="ItemEdit" class="editSlot" name="editButton">edit</button>
+									<button id="ItemSave" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="2">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="edit" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="3">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="ItemEdit" name="editButton">edit</button>
+									<button id="ItemSave" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="4">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="edit" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="5">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="edit" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+							</div>
+							<div id="storage" data-id="3" class="storage">
+
+								<div id="colours">
+									<p class="colorText">Storage Color</p>
+									<div id="colorPicker1" class="palette colorPicker1"></div>
+									<div id="colorPicker2" class="palette colorPicker2"></div>
+									<div id="colorPicker3" class="palette colorPicker3"></div>
+									<div id="colorPicker4" class="palette colorPicker4"></div>
+									<div id="colorPicker5" class="palette colorPicker5"></div>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="1">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="ItemEdit" class="editSlot" name="editButton">edit</button>
+									<button id="ItemSave" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="2">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="edit" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="3">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="ItemEdit" name="editButton">edit</button>
+									<button id="ItemSave" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="4">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="edit" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+
+								<div class="container-slot">
+									<div id="slot" data="5">
+										<select id="itemList" name="itemSelect" class="hide">
+											<option data-i18n="[value]item;[text]item" value="item">Item</option>
+										</select>
+										<span id="itemName" class="name">Item</span>
+										<i id="itemIcon" class="item"></i>
+										<span id="qntText" class="quantity" data-i18n="quantity">Quantity</span>
+										<input name="qntNumber" class="hide" />
+									</div>
+									<button id="edit" name="editButton">edit</button>
+									<button id="save" name="saveButton" class="hide">save</button>
+									<button id="ItemClear" name="clearButton" class="hide">clear</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+-->

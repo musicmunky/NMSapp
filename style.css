@@ -1,0 +1,805 @@
+
+body .navbar, body .subnavbar, body .toolbar {
+	background: #353535;
+}
+.page-content {
+	background-color: #686669;
+}
+.lightTheme .page-content {
+	background-color: #fff;
+}
+.darkTheme .page-content {
+	background-color: #333;
+}
+
+i.icon7 {
+	width: 48px;
+	height: 48px;
+	float: left;
+	margin: 4px 10px 4px 4px;
+	background-size: contain;
+	background-image: url(https://res.cloudinary.com/rogerhn/image/upload/v1480967854/icon.png);
+}
+.langswitch p {
+	margin: 5px;
+}
+.content-block.center {
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align: center;
+}
+.item-block {
+	display: inline-block;
+	max-width: 320px;
+}
+.menu-item {
+	display: inline-block;
+	margin: 5px;
+	width: 128px;
+	height: 128px;
+	background: #616161;
+	border: 1px solid #595959;
+	cursor: pointer;
+}
+.menu-item i {
+	width: 120px;
+	height: 64px;
+	display: block;
+	margin: 13px auto;
+	background-repeat:no-repeat;
+	background-size:contain;
+	background-position:center;
+	vertical-align: middle;
+}
+.menu-cat {
+	display: block;
+	line-height: 32px;
+	letter-spacing: 1px;
+	font-family: 'roboto', sans-serif;
+	font-weight: 700;
+	font-size: 18px;
+	white-space:nowrap;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: -1px -1px 0 #32383f, 1px -1px 0 #32383f, -1px 1px 0 #32383f, 1px 1px 0 #32383f;
+}
+i.menu {
+	background-image: url(https://res.cloudinary.com/rogerhn/image/upload/v1480969231/list.png);
+}
+
+.storage {
+	margin: 10px auto;
+	width: 320px;
+	background: #ccc;
+	padding: 5px;
+}
+.container-slot {
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	vertical-align: top;
+}
+#slot {
+	background-color: #fff;
+	border: 1px solid #333;
+	width: auto;
+	height: auto;
+	margin: 5px;
+	display: block;
+	text-align: center;
+}
+#itemList {
+	height: 32px;
+	position: relative;
+	font-family: 'Roboto', Microsoft YaHei;
+	font-size: 13px;
+	font-weight: 500;
+	text-align: center;
+	text-align-last: center;
+	padding: 5px 4px 0 5px;
+	outline: none;
+	text-transform: capitalize;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border: none;
+	width: 100%;
+	margin: 0 0 5px;
+}
+.name {
+	font-family: 'Roboto', Microsoft YaHei;
+	font-size: 13px;
+	font-weight: 500;
+	text-transform: capitalize;
+	text-align: center;
+	line-height: 17px;
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0 auto;
+	width: 85px;
+	height: 34px;
+	padding: 4px 5px;
+}
+.quantity {
+	font-family: 'Roboto', Microsoft YaHei;
+	font-size: 14px;
+	font-weight: 500;
+	text-align: center;
+	line-height: 23px;
+	display: block;
+	vertical-align: middle;
+	margin: 0 auto;
+	width: auto;
+	padding: 5px;
+	height: 23px;
+}
+i {
+	background-size: contain;
+	width: 75px;
+	height: 75px;
+	display: block;
+	margin: 0 auto;
+}
+
+.qntNumber {
+	text-align: center;
+	margin: 5px;
+	outline: none;
+	color: #333333;
+	font-family: 'Roboto', Microsoft YaHei;
+	font-weight: 500;
+	font-size: 14px;
+	width: 50px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none; 
+	margin: 0; 
+}
+option {
+	text-transform: capitalize;
+}
+.item {
+	background-image: url(https://res.cloudinary.com/rogerhn/image/upload/v1484450932/emptyslot_q2blac.png);
+	background-size: contain;
+	background-color: #ddd;
+}
+label {
+	position:relative
+}
+label:after {
+	content:'<>';
+	font:11px"Consolas", monospace;
+	color:#aaa;
+	-webkit-transform:rotate(90deg);
+	-moz-transform:rotate(90deg);
+	-ms-transform:rotate(90deg);
+	transform:rotate(90deg);
+	right:8px;
+	top:2px;
+	padding:0 0 2px;
+	border-bottom:1px solid #ddd;
+	position:absolute;
+	pointer-events:none;
+}
+label:before {
+	content:'';
+	right:6px;
+	top:0px;
+	width:20px;
+	height:20px;
+	background:#444;
+	position:absolute;
+	pointer-events:none;
+	display:block;
+}
+.hide {
+	display: none !important;
+}
+
+/* Background Colors */
+.palette {
+	cursor: pointer;
+	height: 18px;
+	width: 18px;
+	border: 2px solid #000;
+	display: inline-block;
+	margin: 5px;
+}
+.colorPicker1 {
+	background: #e1ffff;
+}
+.colorPicker2 {
+	background: #ffffb8;
+}
+.colorPicker3 {
+	background: #ffc5ff;
+}
+.colorPicker4 {
+	background-color: #99ff9c;
+}
+.colorPicker5 {
+	background: #97acff;
+}
+#colours {
+	text-align: center;
+}
+.colorText {
+	display: block;
+	text-align: center;
+	margin: 5px;
+}
+/* Theme */
+.themeChange {
+	cursor: pointer;
+	height: 18px;
+	width: 18px;
+	border: 2px solid #000
+}
+.lightTheme {
+	background: #e1ffff;
+}
+.darkTheme {
+	background: #ffffb8;
+}
+.alertOverlay {
+	display:none;
+	position:absolute;
+	z-index:99999;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background: none repeat scroll 0 0 rgba(35, 35, 35, 0.75);
+	-webkit-transition: opacity .3s ease-in-out;
+	-moz-transition: opacity .3s ease-in-out;
+	-ms-transition: opacity .3s ease-in-out;
+	-o-transition: opacity .3s ease-in-out;
+}
+.absolute-center {
+	height: 50%;
+	width: 50%;
+	overflow: auto;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.absolute-center.is-fixed {
+	position: fixed;
+	z-index: 999;
+}
+#itemAlert {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	color: #FFF;
+	padding: 0px;
+	width: 300px;
+	height: 120px;
+	vertical-align: middle;
+	line-height: 30px;
+	font-size: 16px;
+	border-top: 5px solid #b30000;
+	z-index: 2;
+	overflow: hidden;
+	min-width: 300px;
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s;
+}
+#itemAlert:before {
+	content: "";
+	height: 3px;
+	width: 100%;
+	background: #590000;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.alertTitle {
+	display: block;
+	padding: 5px 15px;
+	background: #7f0000;
+	font-family: GeoNMS;
+	letter-spacing: 2px;
+	font-size: 22px;
+}
+.alertText {
+	display: block;
+	text-align: center;
+	color: #E2E2E2;
+	padding: 5px;
+	background: #322424;
+	font-family: 'Roboto', Microsoft YaHei;
+	font-size: 15px;
+}
+.alertButton {
+	background-color: #131313;
+	color: #fff;
+	font-size: 17px;
+	width: 100px;
+	cursor: pointer;
+	display: block;
+	margin: 10px auto 0px;
+	height: 32px;
+	border-left: 5px solid #fff;
+	padding-left: 10px;
+	font-family: 'Roboto', Microsoft YaHei;
+	line-height: 32px;
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s;
+}
+.alertButton:active {
+	background: #7d7d7d;
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s;
+}
+
+@font-face {
+	font-family: 'GeoNMS';
+	src: url('https://atlasdatabase.github.io/fonts/geonms.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+#itemsMenu {
+	position: absolute;
+	width: 510px;
+	height: 260px;
+	background: #322323;
+	border-top: 5px solid #64b4ff;
+	overflow: hidden;
+	left: 50px;
+	top:10px;
+	z-index:9999;
+}
+#itemsMenu:before {
+	content: "";
+	height: 5px;
+	background: #354c66;
+	display: block;
+}
+
+.itemMenuTitle {
+	background-color: #446183;
+	text-align: left;
+	padding: 5px 15px;
+	font-family: GeoNMS;
+	font-size: 22px;
+	color: #fff;
+	margin-bottom: 3px;
+}
+.subMenuTitle {
+	text-align: left;
+	text-transform: uppercase;
+	padding: 5px 10px 0px;
+	font-family: 'Roboto', Microsoft YaHei;
+	font-size: 18px;
+	color: #fff;
+	display: block;
+}
+.itemsContainer {
+	background-color: #322323;
+	text-align: left;
+	overflow: scroll;
+	white-space: nowrap;
+	overflow-y: hidden;
+}
+
+#itemSlotName {
+	font-family: 'Roboto', Microsoft YaHei;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 14px;
+	height: 32px;
+	display: table-cell;
+	vertical-align: middle;
+	width: 75px;
+	text-transform: capitalize;
+	text-align: center;
+	white-space: normal;
+}
+.itemSlot {
+	display: inline-block;
+	background: #fff;
+	padding: 5px;
+	margin: 5px;
+	cursor: pointer;
+}
+.itemSlot i {
+	width: 75px;
+	height: 75px;
+}
+.tabs-menu {
+	float: left;
+	clear: both;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	width: 100%;
+	background: #453232;
+}
+
+.tabs-menu li {
+	height: 39px;
+	line-height: 32px;
+	float: left;
+	padding: 5px;
+}
+.tabs-menu li i {
+	width: 45px;
+	height: 45px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.tabs-menu li i.cat-resources {
+	background-size: 34px;
+}
+
+.tabs-menu li.current {
+	position: relative;
+	z-index: 5;
+	background-color: #64b4ff;
+}
+.tabs-menu li a {
+	text-transform: uppercase;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+}
+.tabs-menu .current a {
+	color: #fff;
+}
+.tabs-menu li span {
+	font-family: 'Roboto', Microsoft YaHei;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 14px;
+	height: 32px;
+	display: table-cell;
+	vertical-align: middle;
+	width: 75px;
+	text-transform: capitalize;
+	text-align: center;
+	white-space: normal;
+}
+
+.tab {
+	float: left;
+	width: auto;
+}
+
+.tab-content {
+	width: 100%;
+	display: none;
+}
+
+#tab-1 {
+	display: block;
+}
+.cat-alloy {
+	background-image: url(https://atlasdatabase.github.io/img/cat/alloy.png);
+}
+.cat-commodity {
+	background-image: url(https://atlasdatabase.github.io/img/cat/commodity.png);
+}
+.cat-components {
+	background-image: url(https://atlasdatabase.github.io/img/cat/components.png);
+}
+.cat-devices {
+	background-image: url(https://atlasdatabase.github.io/img/cat/devices.png);
+}
+.cat-energy {
+	background-image: url(https://atlasdatabase.github.io/img/cat/energy.png);
+}
+.cat-resources {
+	background-image: url(https://atlasdatabase.github.io/img/cat/resources.png);
+}
+
+/*body .navbar, body .subnavbar, body .toolbar {
+  background: #353535;
+}
+.page-content {
+  background-color: #686669;
+}
+.lightTheme .page-content {
+    background-color: #fff;
+}
+.darkTheme .page-content {
+    background-color: #333;
+}
+
+i.icon7 {
+  width: 48px;
+  height: 48px;
+  float: left;
+  margin: 4px 10px 4px 4px;
+  background-size: contain;
+  background-image: url(http://res.cloudinary.com/rogerhn/image/upload/v1480967854/icon.png);
+}
+.langswitch p {
+  margin: 5px;
+}
+.content-block.center {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+.item-block {
+  display: inline-block;
+  max-width: 320px;
+}
+.menu-item {
+  display: inline-block;
+  margin: 5px;
+  width: 128px;
+  height: 128px;
+  background: #616161;
+  border: 1px solid #595959;
+  cursor: pointer;
+}
+.menu-item i {
+  width: 120px;
+  height: 64px;
+  display: block;
+  margin: 13px auto;
+  background-repeat:no-repeat;
+  background-size:contain;
+  background-position:center;
+  vertical-align: middle;
+}
+.menu-cat {
+  display: block;
+  line-height: 32px;
+  letter-spacing: 1px;
+  font-family: 'roboto', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  white-space:nowrap;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: -1px -1px 0 #32383f, 1px -1px 0 #32383f, -1px 1px 0 #32383f, 1px 1px 0 #32383f;
+}
+i.menu {
+  background-image: url(http://res.cloudinary.com/rogerhn/image/upload/v1480969231/list.png);
+}
+
+.storage {
+  float: left;
+  margin: 10px;
+  width: 320px;
+  background: #ccc;
+  padding: 5px;
+}
+.container-slot {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  vertical-align: top;
+}
+#slot {
+  background-color: #fff;
+  border: 1px solid #333;
+  width: auto;
+  height: auto;
+  margin: 5px;
+  display: block;
+  text-align: center;
+}
+#itemList {
+  height: 27px;
+  position: relative;
+  font-family: 'Roboto', Microsoft YaHei;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  text-align-last: center;
+  padding: 5px 4px 0 5px;
+  outline: none;
+  text-transform: capitalize;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  width: 100%;
+  margin: 0 0 5px;
+}
+.name {
+  font-family: 'Roboto', Microsoft YaHei;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-align: center;
+  line-height: 17px;
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0 auto;
+  width: 85px;
+  height: 32px;
+  padding: 5px 5px 3px;
+}
+.quantity {
+  font-family: 'Roboto', Microsoft YaHei;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 23px;
+  display: block;
+  vertical-align: middle;
+  margin: 0 auto;
+  width: auto;
+  padding: 5px;
+  height: 23px;
+}
+i {
+  background-size: contain;
+  width: 75px;
+  height: 75px;
+  display: block;
+  margin: 0 auto;
+}
+
+.qntNumber {
+  text-align: center;
+  margin: 5px;
+  outline: none;
+  color: #333333;
+  font-family: 'Roboto', Microsoft YaHei;
+  font-weight: 500;
+  font-size: 14px;
+  width: 50px;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+option {
+  text-transform: capitalize;
+}
+.item {
+  background-image: url(http://res.cloudinary.com/rogerhn/image/upload/v1484450932/emptyslot_q2blac.png);
+  background-size: contain;
+  background-color: #ddd;
+}
+label {
+    position:relative
+}
+label:after {
+    content:'<>';
+    font:11px"Consolas", monospace;
+    color:#aaa;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:8px;
+    top:2px;
+    padding:0 0 2px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none;
+}
+label:before {
+    content:'';
+    right:6px;
+    top:0px;
+    width:20px;
+    height:20px;
+    background:#444;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}
+.hide {
+display: none !important;
+}
+
+.palette {
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+  border: 2px solid #000;
+  display: inline-block;
+  margin: 5px;
+}
+.colorPicker1 {
+    background: #e1ffff;
+}
+.colorPicker2 {
+    background: #ffffb8;
+}
+.colorPicker3 {
+    background: #ffc5ff;
+}
+.colorPicker4 {
+    background-color: #99ff9c;
+}
+.colorPicker5 {
+    background: #97acff;
+}
+#colours {
+    text-align: center;
+}
+.colorText {
+    display: block;
+    text-align: center;
+    margin: 5px;
+}
+
+
+.themeChange {
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    border: 2px solid #000
+}
+.lightTheme {
+    background: #e1ffff;
+}
+.darkTheme {
+    background: #ffffb8;
+}
+
+#itemAlert:before {
+  content: "";
+  height: 4px;
+  width: 200px;
+  background: #821818;
+}
+#itemAlert {
+  position: absolute;
+  background: #AD2D2D;
+  color: #FFF;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  height: 50px;
+  vertical-align: middle;
+  line-height: 50px;
+  font-size: 16px;
+  border-top: 5px solid #821818;
+}
+.absolute-center {
+    height: 50%;
+    width: 50%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.absolute-center.is-fixed {
+    position: fixed;
+    z-index: 999;
+}
+
+.alertOverlay {
+	display:none;
+	position:absolute;
+	z-index:99999;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background: none repeat scroll 0 0 rgba(150, 150, 150, 0.5);
+	*background-color:#969696;
+}
+
+.alertButton {
+	background-color: #FAFAFA;
+    border: medium none;
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: -10px;
+    text-align: center;
+    width: 100px !important;
+}
+*/
