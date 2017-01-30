@@ -212,11 +212,23 @@ $(document).ready(function () {
 		$(".alertButton").click(function() {
 			closeAlert();
 		});
+
+		$('.itemSlot').click(function () {
+			var $p = $(this).parent().parent().parent().parent();
+			$p.toggleClass("hide");
+		});
+
+		$('.changecolor').click(function () {
+			var $p = $(this).parent();
+			$p.toggleClass("active");
+		});
+	}
+	else {
+		// need to come up with a way to let the user know their browser doesn't work
+		// with this app...just an error message?  not sure on this one...need to talk
+		// to Rog
 	}
 });
-
-
-function buildItemMenu(o) {}
 
 
 function saveItem(t) {
