@@ -51,7 +51,6 @@ $(document).ready(function () {
 							$div.find("#itemIcon").attr('class', '').addClass(slot['name']);
 							$div.find("#itemName").html('<span data-i18n="' + slot['name'] + '">' + slot['name'].replace(/-/gi, " ") + '</span>');
 							$div.find("#qntText").html(slot['quantity']);
-							$div.find("#itemList").val(slot['name']);
 						}
 					}
 				}
@@ -134,28 +133,9 @@ $(document).ready(function () {
 		var saveItems = document.getElementsByName('saveButton');
 		var editItems = document.getElementsByName('editButton');
 		var clearItems = document.getElementsByName('clearButton');
-		var select = document.getElementsByName("itemSelect");
-
-		var opt, el, i18;
-		for(var i = 0; i < select.length; i++) {
-			for(var j = 0; j < OPTIONS.length; j++) {
-				opt = OPTIONS[j];
-				el = document.createElement("option");
-				i18 = document.createAttribute("data-i18n");
-
-				//when working with select elements you need to tell it to translate
-				//both the value AND the text node:
-				i18.value = "[value]" + opt + ";[text]" + opt;
-				el.setAttributeNode(i18);
-				el.textContent = opt.replace(/-/gi, " ");
-				el.value = opt;
-				select[i].appendChild(el);
-			}
-		}
 
 		for (var i = 0; i < saveItems.length; i++) {
 			$(saveItems[i]).click(function() { saveItem(this); });
-			select[i].onchange = function() { changeIcon(this); };
 		}
 
 		for (var j = 0; j < editItems.length; j++) {
@@ -226,8 +206,6 @@ $(document).ready(function () {
 			icn.attr('class', '').addClass(elmt);
 
 			document.getElementById("itemsMenuOverlay").style.display = "none";
-// 			var $p = $(this).parent().parent().parent().parent();
-// 			$p.toggleClass("hide");
 		});
 
 		$(".closeItemsButton").click(function() {
@@ -253,52 +231,51 @@ $(document).ready(function () {
 		// to Rog
 	}
 
-	$("body").mousewheel(function(event, delta) {
-		console.log("got here");
-		this.scrollLeft -= (delta * 30);
-		event.preventDefault();
-	});
+	// implement horizontal scrolling with mouse wheel
+	var elems = document.getElementsByName('scrollable_div');
+	var elem = null;
+	for(var i = 0; i < elems.length; i++)
+	{
+		elem = elems[i];
+		if (elem.addEventListener)
+		{
+			elem.addEventListener("mousewheel", scrollDiv, false);
+			elem.addEventListener("DOMMouseScroll", scrollDiv, false);
+		}
+		else
+		{
+			elem.attachEvent("onmousewheel", scrollDiv);
+		}
+	}
+
 });
 
 
-/*
-// Fake horizontal scrolling with mouse wheel
-var elem = document.getElementById('scroll-area'),
-    width = parseInt(elem.offsetWidth, 10),
-    cldWidth = parseInt(elem.children[0].offsetWidth, 10),
-    distance = cldWidth - width,
-    mean = 40, // Just for multiplier (go faster or slower)
-    current = 0;
+function scrollDiv(e)
+{
+	var MULTIPLIER = 40; // Just for multiplier (go faster or slower)
+	var width = this.children.length * parseInt(this.children[0].offsetWidth);
+	var distance = width;
+	var curr_elm = document.getElementById(this.id + "_current");
+	var current = parseInt(curr_elm.value);
 
-elem.children[0].style.left = current + "px"; // Set default `left` value as `0` for initiation
+	// cross-browser wheel delta
+	e = window.event || e;
+	var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
 
-var doScroll = function (e) {
+	// (1 = scroll-up, -1 = scroll-down)
+	// Always check the scroll distance, make sure that the scroll distance value will not
+	// increased more than the container width and/or less than zero
+	if ((delta == -1 && current * MULTIPLIER >= (-distance + 300)) || (delta == 1 && current * MULTIPLIER < 0)) {
+		current = current + delta;
+	}
 
-    // cross-browser wheel delta
-    e = window.event || e;
-    var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-
-    // (1 = scroll-up, -1 = scroll-down)
-    // Always check the scroll distance, make sure that the scroll distance value will not
-    // increased more than the container width and/or less than zero
-    if ((delta == -1 && current * mean >= -distance) || (delta == 1 && current * mean < 0)) {
-        current = current + delta;
-    }
-
-    // Move element to the left or right by updating the `left` value
-    elem.children[0].style.left = (current * mean) + 'px';
-
-    e.preventDefault();
-
-};
-
-if (elem.addEventListener) {
-    elem.addEventListener("mousewheel", doScroll, false);
-    elem.addEventListener("DOMMouseScroll", doScroll, false);
-} else {
-    elem.attachEvent("onmousewheel", doScroll);
+	// Move element to the left or right by updating the `left` value
+	this.style.marginLeft = (current * MULTIPLIER) + "px";
+	curr_elm.value = current;
+	e.preventDefault();
 }
-*/
+
 
 function saveItem(t) {
 	// getting the parent element of the button and the container id
@@ -307,7 +284,6 @@ function saveItem(t) {
 	var storageName = document.getElementById('PageName').getAttribute('data-page');
 	var items = JSON.parse(localStorage.getItem(storageName));
 	var dval = $p.find("#slot").attr("data");
-	var itemList = $p.find("#itemList");
 	var qntNumber = $p.find("input[name='qntNumber']");
 	var qntNumVal = qntNumber.val();
 	var itemName = $p.find("#itemName");
@@ -316,6 +292,8 @@ function saveItem(t) {
 
 	var lang = localStorage.getItem("language");
 	var qnty = ITEMSLANG[lang]['translation']['quantity'];
+	var element = itemName.find("span").attr("data-i18n");
+
 	// here is a check to make sure that when they click "save" there is a value
 	// in both the text field and the select list
 	// Otherwise it will allow users to save a number without an item selected, or
@@ -323,7 +301,7 @@ function saveItem(t) {
 	// the regular expression test looks to see if the number is blank or equals zero
 	// and if so just sets the text for the span/select back to "Quantity" and select
 	// as it should
-	if(itemList.val() === "item" && !/^\s*$/.test(qntNumVal)) {
+	if(element === "item" && !/^\s*$/.test(qntNumVal)) {
 		showAlert();
 		return false;
 	}
@@ -332,17 +310,16 @@ function saveItem(t) {
 		qntNumVal = qnty;
 	}
 
-	var i18nstr = itemList.find(":selected").attr("data-i18n");
-	var element = i18nstr.match(/\[value](\w+(-\w+)*);/)[1];
+//	var i18nstr = itemName.find("span").attr("data-i18n");
+//	var element = i18nstr.match(/\[value](\w+(-\w+)*);/)[1];
+	var element = itemName.find("span").attr("data-i18n");
 	$p.find("#itemIcon").attr('class', '').addClass(element);
-	$p.find("#itemName").html('<span data-i18n="' + element + '">' + itemList.val().replace(/-/gi, " ") + '</span>');
 	$p.find("#qntText").html(qntNumVal);
 
 	items['container' + cid]['slot' + dval]['name'] = element;
 	items['container' + cid]['slot' + dval]['quantity'] = (qntNumVal === qnty) ? 0 : qntNumVal;
 	localStorage.setItem(storageName, JSON.stringify(items));
 
-	itemList.addClass("hide");
 	itemsMenu.addClass("hide");
 	qntNumber.addClass("hide");
 	qntNumber.removeClass("qntNumber");
@@ -362,15 +339,8 @@ function editItem(t) {
 	var storageData = document.getElementById('PageName').getAttribute('data-page');
 	var items = JSON.parse(localStorage.getItem(storageData));
 	var sid = $p.find("#slot").attr("data");
-	var itemList = $p.find("#itemList");
 	var itemsMenu = $p.find("#itemsMenu");
 	var qntNumber = $p.find("input[name='qntNumber']");
-
-/*	if(items['container' + cid]['slot' + sid]['name'] !== "") {
-		var ename = items['container' + cid]['slot' + sid]['name'];
-		var option = itemList.find("option[data-i18n='[value]" + ename + ";[text]" + ename + "']");
-		itemList.val(option.val());
-	}*/
 
 	if(parseInt(items['container' + cid]['slot' + sid]['quantity']) !== 0) {
 		qntNumber.val(items['container' + cid]['slot' + sid]['quantity']);
@@ -382,13 +352,11 @@ function editItem(t) {
 	$("#itemsMenu").removeClass("hide");
 	document.getElementById("itemsMenuOverlay").style.display = "block";
 
-// 	$p.find("#itemList").removeClass("hide");
 	qntNumber.addClass("qntNumber");
 	qntNumber.removeClass("hide");
 
 	$p.find("button[name='saveButton']").removeClass("hide");
 	$p.find("button[name='clearButton']").removeClass("hide");
-// 	$p.find("#itemName").addClass("hide");
 	$p.find("#qntText").addClass("hide");
 	$p.find("button[name='editButton']").addClass("hide");
 }
@@ -400,13 +368,11 @@ function clearItem(t) {
 	var storageData = document.getElementById('PageName').getAttribute('data-page');
 	var items = JSON.parse(localStorage.getItem(storageData));
 	var dval = $p.find("#slot").attr("data");
-	var itemList  = $p.find("#itemList");
 	var qntNumber = $p.find("input[name='qntNumber']");
 	var itemName  = $p.find("#itemName");
 	var qntText   = $p.find("#qntText");
 	var itemsMenu = $("#itemsMenu");
 
-	itemList.val("item");
 	qntNumber.val("");
 
 	$p.find("#itemIcon").attr('class', '').addClass("item");
@@ -417,7 +383,6 @@ function clearItem(t) {
 	items['container' + cid]['slot' + dval]['quantity'] = 0;
 	localStorage.setItem(storageData, JSON.stringify(items));
 
-	itemList.addClass("hide");
 	itemsMenu.addClass("hide");
 	qntNumber.removeClass("qntNumber");
 	qntNumber.addClass("hide");
@@ -433,7 +398,7 @@ function clearItem(t) {
 
 
 function changeIcon(t) {
-	var $p = $(t).parent();
+/* 	var $p = $(t).parent();
 	var i18nstr = $p.find("#itemList").find(":selected").attr("data-i18n");
 	if(!/^\s*$/.test(i18nstr) && i18nstr !== undefined) {
 		var clss = i18nstr.match(/\[value](\w+(-\w+)*);/)[1];
@@ -441,7 +406,7 @@ function changeIcon(t) {
 	}
 	else {
 		$p.find("#itemIcon").attr('class', '').addClass("item");
-	}
+	} */
 }
 
 

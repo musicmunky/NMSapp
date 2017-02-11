@@ -574,6 +574,7 @@ label:before {
 .tab-content {
 	width: 300px;
 	display: none;
+	overflow-x: hidden;
 }
 
 #tab-1 {

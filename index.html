@@ -80,9 +80,6 @@
 								</div>
 								<div class="container-slot">
 									<div id="slot" data="1">
-										<select id="itemList" name="itemSelect" class="hide">
-											<option data-i18n="[value]item;[text]item" value="item">Item</option>
-										</select>
 										<span id="itemName" class="name" data-i18n="[value]Item;[text]Item">Item</span>
 										<i id="itemIcon" class="item"></i>
 										<span id="qntText" class="quantity" data-i18n="Quantity">Quantity</span>
@@ -95,9 +92,6 @@
 
 								<div class="container-slot">
 									<div id="slot" data="2">
-										<select id="itemList" name="itemSelect" class="hide">
-											<option data-i18n="[value]item;[text]item" value="item">Item</option>
-										</select>
 										<span id="itemName" class="name">Item</span>
 										<i id="itemIcon" class="item"></i>
 										<span id="qntText" class="quantity" data-i18n="Quantity">Quantity</span>
@@ -111,9 +105,6 @@
 								<div class="storageNumber"></div><br>
 								<div class="container-slot">
 									<div id="slot" data="3">
-										<select id="itemList" name="itemSelect" class="hide">
-											<option data-i18n="[value]item;[text]item" value="item">Item</option>
-										</select>
 										<span id="itemName" class="name">Item</span>
 										<i id="itemIcon" class="item"></i>
 										<span id="qntText" class="quantity" data-i18n="Quantity">Quantity</span>
@@ -126,9 +117,6 @@
 
 								<div class="container-slot">
 									<div id="slot" data="4">
-										<select id="itemList" name="itemSelect" class="hide">
-											<option data-i18n="[value]item;[text]item" value="item">Item</option>
-										</select>
 										<span id="itemName" class="name">Item</span>
 										<i id="itemIcon" class="item"></i>
 										<span id="qntText" class="quantity" data-i18n="Quantity">Quantity</span>
@@ -141,9 +129,6 @@
 
 								<div class="container-slot">
 									<div id="slot" data="5">
-										<select id="itemList" name="itemSelect" class="hide">
-											<option data-i18n="[value]item;[text]item" value="item">Item</option>
-										</select>
 										<span id="itemName" class="name">Item</span>
 										<i id="itemIcon" class="item"></i>
 										<span id="qntText" class="quantity" data-i18n="Quantity">Quantity</span>
@@ -194,27 +179,33 @@
 					<div class="tab">
 						<div id="tab-1" class="tab-content resources">
 							<div class="subMenuTitle" data-i18n="resources">resources</div>
-							<div class="itemsContainer"></div>
+							<div class="itemsContainer" name="scrollable_div" id="resources_container"></div>
+							<input type="hidden" id="resources_container_current" value="0" />
 						</div>
 						<div id="tab-2" class="tab-content devices">
 							<div class="subMenuTitle" data-i18n="devices">devices</div>
-							<div class="itemsContainer"></div>
+							<div class="itemsContainer" name="scrollable_div" id="devices_container"></div>
+							<input type="hidden" id="devices_container_current" value="0" />
 						</div>
 						<div id="tab-3" class="tab-content components">
 							<div class="subMenuTitle" data-i18n="components">components</div>
-							<div class="itemsContainer"></div>
+							<div class="itemsContainer" name="scrollable_div" id="components_container"></div>
+							<input type="hidden" id="components_container_current" value="0" />
 						</div>
 						<div id="tab-4" class="tab-content commodities">
 							<div class="subMenuTitle" data-i18n="commodities">commodities</div>
-							<div class="itemsContainer"></div>
+							<div class="itemsContainer" name="scrollable_div" id="commodities_container"></div>
+							<input type="hidden" id="commodities_container_current" value="0" />
 						</div>
 						<div id="tab-5" class="tab-content alloys">
 							<div class="subMenuTitle" data-i18n="alloys">alloys</div>
-							<div class="itemsContainer"></div>
+							<div class="itemsContainer" name="scrollable_div" id="alloys_container"></div>
+							<input type="hidden" id="alloys_container_current" value="0" />
 						</div>
 						<div id="tab-6" class="tab-content energy">
 							<div class="subMenuTitle" data-i18n="energy">energy</div>
-							<div class="itemsContainer"></div>
+							<div class="itemsContainer" name="scrollable_div" id="energy_container"></div>
+							<input type="hidden" id="energy_container_current" value="0" />
 						</div>
 					</div>
 					<div class="closeButtonDiv">
