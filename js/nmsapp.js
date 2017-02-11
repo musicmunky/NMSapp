@@ -120,7 +120,7 @@ $(document).ready(function () {
 				arr  = ALLITEMS[rsrc];
 				html = "";
 				for(var i = 0; i < arr.length; i++) {
-					html += "<div class='itemSlot'>";
+					html += "<div class='itemSlot' name='itemMenuSlot'>";
 					html += "<span class='itemSlotName' data-i18n='" + arr[i] + "'>" + arr[i].replace(/-/g, " ") + "</span>";
 					html += "<i class='" + arr[i] + "'></i></div>";
 				}
@@ -214,12 +214,31 @@ $(document).ready(function () {
 		});
 
 		$('.itemSlot').click(function () {
+			var item = $(this);
+			var elmt = item.find(".itemSlotName").attr("data-i18n");
+
+			var cid = document.getElementById("current-container").value;
+			var sid = document.getElementById("current-slot").value;
+			var slt = $("body").find("div[data-id='" + cid + "']").find("div[data='" + sid + "']");
+			slt.find("#itemName").html('<span data-i18n="' + elmt + '">' + elmt.replace(/-/gi, " ") + '</span>');
+
+			var icn = slt.find("i");
+			icn.attr('class', '').addClass(elmt);
+
 			document.getElementById("itemsMenuOverlay").style.display = "none";
 // 			var $p = $(this).parent().parent().parent().parent();
 // 			$p.toggleClass("hide");
 		});
 
 		$(".closeItemsButton").click(function() {
+
+			var cid = document.getElementById("current-container").value;
+			var sid = document.getElementById("current-slot").value;
+			var edt = $("body").find("div[data-id='" + cid + "']")
+								.find("div[data='" + sid + "']").parent()
+								.find("button[name='editButton']");
+			saveItem(edt);
+
 			document.getElementById("itemsMenuOverlay").style.display = "none";
 		});
 
@@ -297,31 +316,34 @@ function editItem(t) {
 	var cid = $p.parent().attr('data-id');
 	var storageData = document.getElementById('PageName').getAttribute('data-page');
 	var items = JSON.parse(localStorage.getItem(storageData));
-	var dval = $p.find("#slot").attr("data");
+	var sid = $p.find("#slot").attr("data");
 	var itemList = $p.find("#itemList");
 	var itemsMenu = $p.find("#itemsMenu");
 	var qntNumber = $p.find("input[name='qntNumber']");
 
-	if(items['container' + cid]['slot' + dval]['name'] !== "") {
-		var ename = items['container' + cid]['slot' + dval]['name'];
+/*	if(items['container' + cid]['slot' + sid]['name'] !== "") {
+		var ename = items['container' + cid]['slot' + sid]['name'];
 		var option = itemList.find("option[data-i18n='[value]" + ename + ";[text]" + ename + "']");
 		itemList.val(option.val());
+	}*/
+
+	if(parseInt(items['container' + cid]['slot' + sid]['quantity']) !== 0) {
+		qntNumber.val(items['container' + cid]['slot' + sid]['quantity']);
 	}
 
-	if(parseInt(items['container' + cid]['slot' + dval]['quantity']) !== 0) {
-		qntNumber.val(items['container' + cid]['slot' + dval]['quantity']);
-	}
+	document.getElementById("current-container").value = cid;
+	document.getElementById("current-slot").value = sid;
 
 	$("#itemsMenu").removeClass("hide");
 	document.getElementById("itemsMenuOverlay").style.display = "block";
 
-	$p.find("#itemList").removeClass("hide");
+// 	$p.find("#itemList").removeClass("hide");
 	qntNumber.addClass("qntNumber");
 	qntNumber.removeClass("hide");
 
 	$p.find("button[name='saveButton']").removeClass("hide");
 	$p.find("button[name='clearButton']").removeClass("hide");
-	$p.find("#itemName").addClass("hide");
+// 	$p.find("#itemName").addClass("hide");
 	$p.find("#qntText").addClass("hide");
 	$p.find("button[name='editButton']").addClass("hide");
 }
@@ -417,7 +439,13 @@ function showAlert() {
 function closeAlert() {
 	try {
 		var elm = document.getElementById("alertOverlayDiv");
+		var cid = document.getElementById("current-container").value;
+		var sid = document.getElementById("current-slot").value;
+debugger;
 		if(elm !== null) {
+			var slot = $("body").find("div[data-id='" + cid + "']").find("div[data='" + sid + "']").parent();
+			saveItem(slot);
+
 			var par = elm.parentNode;
 			par.removeChild(elm);
 		}

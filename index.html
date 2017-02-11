@@ -19,6 +19,8 @@
 		<script language="javascript" type="text/javascript" src="js/nmsapp.js"></script>
 	</head>
 	<body id="theme">
+		<input type="hidden" id="current-container" value="" />
+		<input type="hidden" id="current-slot" value="" />
 		<div class="statusbar-overlay"></div>
 		<div class="panel-overlay"></div>
 		<div class="panel panel-left panel-cover">
@@ -105,9 +107,7 @@
 									<button id="ItemClear" name="clearButton" class="slotbuttons hide">clear</button>
 								</div>
 
-								<div class="storageNumber"></div>
-								<br>
-
+								<div class="storageNumber"></div><br>
 								<div class="container-slot">
 									<div id="slot" data="3">
 										<select id="itemList" name="itemSelect" class="hide">
