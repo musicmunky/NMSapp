@@ -428,10 +428,12 @@ label:before {
 }
 
 .closeButtonDiv {
-	width:100%;
-	float:left;
-	margin-top:5px;
-	text-align:center;
+	width: 100%;
+	float: left;
+	text-align: center;
+	position: absolute;
+	background-color: #322323;
+	bottom: 15px;
 }
 
 .closeItemsButton {
@@ -462,7 +464,8 @@ label:before {
 	font-family: GeoNMS;
 	font-size: 22px;
 	color: #fff;
-	margin-bottom: 3px;
+/* 	margin-bottom: 3px; */
+	border-bottom: 1px solid #444;
 }
 .subMenuTitle {
 	text-align: left;
@@ -480,6 +483,7 @@ label:before {
 	overflow: scroll;
 	white-space: nowrap;
 	overflow-y: hidden;
+	height: 185px;
 }
 
 .itemSlotName {
