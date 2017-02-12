@@ -196,11 +196,13 @@ $(document).ready(function () {
 		$('.itemSlot').click(function () {
 			var item = $(this);
 			var elmt = item.find(".itemSlotName").attr("data-i18n");
+			var lang = localStorage.getItem("language");
+			var trns = ITEMSLANG[lang]['translation'][elmt];
 
 			var cid = document.getElementById("current-container").value;
 			var sid = document.getElementById("current-slot").value;
 			var slt = $("body").find("div[data-id='" + cid + "']").find("div[data='" + sid + "']");
-			slt.find("#itemName").html('<span data-i18n="' + elmt + '">' + elmt.replace(/-/gi, " ") + '</span>');
+			slt.find("#itemName").html('<span data-i18n="' + elmt + '">' + trns.replace(/-/gi, " ") + '</span>');
 
 			var icn = slt.find("i");
 			icn.attr('class', '').addClass(elmt);
@@ -251,13 +253,11 @@ $(document).ready(function () {
 });
 
 
-function scrollDiv(e)
-{
+function scrollDiv(e) {
 	var MULTIPLIER = 40; // Just for multiplier (go faster or slower)
-	var width = this.children.length * parseInt(this.children[0].offsetWidth);
-	var distance = width;
-	var curr_elm = document.getElementById(this.id + "_current");
-	var current = parseInt(curr_elm.value);
+	var width      = this.children.length * parseInt(this.children[0].offsetWidth);
+	var curr_elm   = document.getElementById(this.id + "_current");
+	var current    = parseInt(curr_elm.value);
 
 	// cross-browser wheel delta
 	e = window.event || e;
@@ -266,11 +266,11 @@ function scrollDiv(e)
 	// (1 = scroll-up, -1 = scroll-down)
 	// Always check the scroll distance, make sure that the scroll distance value will not
 	// increased more than the container width and/or less than zero
-	if ((delta == -1 && current * MULTIPLIER >= (-distance + 300)) || (delta == 1 && current * MULTIPLIER < 0)) {
+	if ((delta == -1 && current * MULTIPLIER >= -width) || (delta == 1 && current * MULTIPLIER < 0)) {
 		current = current + delta;
 	}
 
-	// Move element to the left or right by updating the `left` value
+	// Move element to the left or right by updating the 'left' value
 	this.style.marginLeft = (current * MULTIPLIER) + "px";
 	curr_elm.value = current;
 	e.preventDefault();
@@ -293,6 +293,7 @@ function saveItem(t) {
 	var lang = localStorage.getItem("language");
 	var qnty = ITEMSLANG[lang]['translation']['quantity'];
 	var element = itemName.find("span").attr("data-i18n");
+	element = (element === undefined) ? "item" : element;
 
 	// here is a check to make sure that when they click "save" there is a value
 	// in both the text field and the select list
@@ -312,7 +313,8 @@ function saveItem(t) {
 
 //	var i18nstr = itemName.find("span").attr("data-i18n");
 //	var element = i18nstr.match(/\[value](\w+(-\w+)*);/)[1];
-	var element = itemName.find("span").attr("data-i18n");
+//	var element = itemName.find("span").attr("data-i18n");
+
 	$p.find("#itemIcon").attr('class', '').addClass(element);
 	$p.find("#qntText").html(qntNumVal);
 
@@ -394,19 +396,6 @@ function clearItem(t) {
 	$p.find("button[name='saveButton']").addClass("hide");
 	$p.find("button[name='clearButton']").addClass("hide");
 	$p.find("button[name='editButton']").removeClass("hide");
-}
-
-
-function changeIcon(t) {
-/* 	var $p = $(t).parent();
-	var i18nstr = $p.find("#itemList").find(":selected").attr("data-i18n");
-	if(!/^\s*$/.test(i18nstr) && i18nstr !== undefined) {
-		var clss = i18nstr.match(/\[value](\w+(-\w+)*);/)[1];
-		$p.find("#itemIcon").attr('class', '').addClass(clss);
-	}
-	else {
-		$p.find("#itemIcon").attr('class', '').addClass("item");
-	} */
 }
 
 

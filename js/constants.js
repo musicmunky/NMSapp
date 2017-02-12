@@ -6,14 +6,8 @@
 /************************************************************************/
 // you will need to set CONTAINERS to 10 once you're done with your coding
 /************************************************************************/
-var CONTAINERS = 3;
+var CONTAINERS = 10;
 var SLOTS = 5;
-
-var OPTIONS = ["carbon", "thamium9", "plutonium", "heridium", "platinum", "chrysonite", "iron", "zinc",
-			   "titanium", "nickel", "iridium", "copper", "gold", "emeril", "aluminium", "candensium",
-			   "fervidium", "mordite", "pugneum", "spadonium", "tropheum", "temerium", "coryzagen",
-			   "coprite", "rubeum", "viridium", "cymatygen", "omegon", "radnox", "murrine", "calium",
-			   "antrium", "rigogen", "bypass-chip", "albumen-pearl"];
 
 var ALLITEMS = {
 	resources: ["carbon", "thamium9", "plutonium", "heridium", "platinum", "chrysonite", "iron", "zinc",
